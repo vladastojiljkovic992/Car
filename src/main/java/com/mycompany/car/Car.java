@@ -4,13 +4,30 @@
 
 package com.mycompany.car;
 
-/**
- *
- * @author stepa
- */
 public class Car {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        int a = 5;
+        int b = 6;
+        Main audi  = new Main ();
+        audi.brand = "Audi";
+        audi.model = "A4";
+        audi.color = "black";
+//        audi.buildYear = 2005;
+        audi.printAttributes();
+        
+        
+        Main bmv  = new Main ();
+        bmv.brand = "bmv";
+        bmv.model = "X5";
+        bmv.printAttributes();
+        
+        Main fiat  = new Main(2010);
+        
+        System.out.println("Godina proizvodnje: " + fiat.getBuildYear());
+        
+        Main lada = new Main("Lada", "Niva", "green", 2018);
+        lada.printAttributes();
+        
     }
 }
