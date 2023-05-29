@@ -12,7 +12,7 @@ public class Main {
     private int buildYear;
     private int mileage = 0;
     private int fuel;
-    private int consumption;
+    private int consumption = 5;
     
     public Main() {
         this.brand = "";
@@ -66,19 +66,26 @@ public class Main {
         System.out.println("Build Year: " + this.getBuildYear());
         System.out.println("Mileage: " + this.getMileage());
         System.out.println("Current fuel: " + this.getFuel());
+        System.out.println("");
     }
     
     public void travel(int distance) {
+        int fuelNeededForTravel = this.getConsumption() * distance / 100;
+        if (this.getFuel() >= fuelNeededForTravel) {
         // int newMileage = this.getMileage() + distance;
         // this.setMileage(newMileage);
-        
         this.setMileage(this.getMileage() + distance);
+//        int spentFuel = this.getConsumption() * distance;
+//        int newFuel = this.getFuel() - spentFuel;
+//        this.setFuel(newFuel);
+        this.setFuel(this.getFuel() - this.getConsumption() * distance / 100);    
+        System.out.println("Uspesno je predjen put od: " + distance + " kilometara");
+        } else {
+            System.out.println("Nema dovoljno goriva za takav put");
+        }
         
-        int spentFuel = this.getConsumption() * distance;
-        int newFuel = this.getFuel() - spentFuel;
-        this.setFuel(newFuel);
     }
     
-    
-    
+    // public fuelUp(int amountOfFuel)
+    // maxFuel (kapacitet reyervoara)
 }
