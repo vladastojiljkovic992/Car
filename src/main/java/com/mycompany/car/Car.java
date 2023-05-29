@@ -10,6 +10,7 @@ public class Car {
         int a = 5;
         int b = 6;
         Main audi  = new Main ();
+        audi.printAttributes();
         audi.brand = "Audi";
         audi.model = "A4";
         audi.color = "black";
@@ -26,7 +27,9 @@ public class Car {
         
         System.out.println("Godina proizvodnje: " + fiat.getBuildYear());
         
-        Main lada = new Main("Lada", "Niva", "green", 2018);
+        Main lada = new Main("Lada", "Niva", "green", 2018, 0, 20, 5);
+        lada.printAttributes();
+        lada.travel(100);
         lada.printAttributes();
         
     }
