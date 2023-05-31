@@ -13,15 +13,18 @@ public class Main {
     private int mileage = 0;
     private int fuel;
     private int consumption = 5;
+    public int fuelUp;
+    public int maxFuel = 30;
     
     public Main() {
         this.brand = "";
         this.model = "";
         this.color = "";
         this.buildYear = 0;
+        this.fuelUp = 0;
     }
     
-    public Main(String brand, String model, String color, int buildYear, int mileage, int fuel, int consumption) {
+    public Main(String brand, String model, String color, int buildYear, int mileage, int fuel, int consumption, int fuelUp, int maxFuel) {
         this.brand = brand;
         this.model = model;
         this.color = color;
@@ -29,6 +32,8 @@ public class Main {
         this.mileage = mileage;
         this.fuel = fuel;
         this.consumption = consumption;
+        this.fuelUp = fuelUp;
+        this.maxFuel = maxFuel;
     }
     
     public Main(int bulidYear) {
@@ -59,6 +64,21 @@ public class Main {
         this.fuel = fuel;
     }
     
+    private void setMaxFuel(int setFuel) {
+        this.maxFuel = setFuel;
+    }
+    
+    public int getMaxFuel() {
+        return this.maxFuel;
+    }
+    
+    private void setFuelUp(int fuelUp) {
+        this.fuelUp = fuelUp;
+    }
+    
+    public int getFuelUp() {
+        return this.fuelUp;
+    }
     public void printAttributes() {
         System.out.println("Brand: " + this.brand);
         System.out.println("Model: " + this.model);
@@ -66,8 +86,20 @@ public class Main {
         System.out.println("Build Year: " + this.getBuildYear());
         System.out.println("Mileage: " + this.getMileage());
         System.out.println("Current fuel: " + this.getFuel());
+        System.out.println("Current fuelUp: " + this.getFuelUp());
         System.out.println("");
     }
+    
+      public void fuelUp(int fuelUp) {
+        if ((this.getFuel() + fuelUp) > this.getMaxFuel()) {
+            // Sipamo do punog rezervoara
+            // Ispisujemo poruku; Sipali ste x litara. Ostalih y litara nije moguce jer je rezervoar pun.
+            System.out.println("Ne mozete sipati toliko goriva u rezervoar");
+        } else {
+            this.setFuel(this.getFuel() + fuelUp);
+            System.out.println("U vasem rezervoaru trenutno ima: " + this.getFuel() + "litara");
+        }
+      }
     
     public void travel(int distance) {
         int fuelNeededForTravel = this.getConsumption() * distance / 100;
